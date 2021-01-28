@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*Rota dos Lotes, listagem dos lotes*/
+Route::resource('/Lotes', 'LoteController');
+
+
+
+/*Rota dos Frangos*/
+
+
+
 Route::get('/', function () {
     return view('welcome');
 });

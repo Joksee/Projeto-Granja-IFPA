@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'America/Brasilia',
+    'timezone' => 'America/Belem',
 
     /*
     |--------------------------------------------------------------------------
