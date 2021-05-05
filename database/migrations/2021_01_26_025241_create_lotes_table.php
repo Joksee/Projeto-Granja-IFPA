@@ -20,6 +20,8 @@ class CreateLotesTable extends Migration
             $table->decimal('pesoInicialLotes', 5,2);
             $table->decimal('pesoMedioLotes', 5,2)->nullable();
             $table->date('dataInicialLotes');
+            $table->date('dataFinalLotes')->nullable();;
+            $table->enum('statusLotes', ['A', 'F']);
             $table->timestamps();
         });
     }

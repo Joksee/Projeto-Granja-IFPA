@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Lote;
-use App\Models\Frango;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use App\Models\Racao;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Route;
 
-class LoteController extends Controller
+class RacaoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,12 +14,9 @@ class LoteController extends Controller
      */
     public function index()
     {
-        $lotes = Lote::all();
-
-        return view('Lotes.index',[
-            'lotes' => $lotes,
-        ]);
+        //
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -30,21 +24,21 @@ class LoteController extends Controller
      */
     public function create()
     {
-        return view('Lotes.create');
+        //
+        return view('Racaos.create');
     }
 
     /**
-     * fazer o cadastro do produto em sí
+     * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
+        //
         $data = $request->all();
-
-        $lote = Lote::create($data);
-        
+        $Racao = Racao::create($data);
         return redirect()->route('Lotes.index');
     }
 
@@ -56,21 +50,7 @@ class LoteController extends Controller
      */
     public function show($id)
     {
-        if (!$lote = Lote::find($id))
-            return redirect()->back();
-        
-        $frangos = $lote->frangos;
-        $vacinas = $lote->vacinas;
-        $racaos  = $lote->racaos;
-        
-
-        return view('Lotes.show', [
-            'lote'=>$lote,
-            'frangos'=>$frangos,
-            'vacinas'=>$vacinas,
-            'racaos' =>$racaos
-
-            ]);
+        //
     }
 
     /**
@@ -81,10 +61,11 @@ class LoteController extends Controller
      */
     public function edit($id)
     {
-        if (!$lote = Lote::find($id))
+        //
+        if (!$racao = Racao::find($id))
             return redirect()->back();
 
-        return view('Lotes.edit', compact('lote'));
+        return view('Racaos.edit', compact('racao'));
     }
 
     /**
@@ -96,10 +77,11 @@ class LoteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if (!$lote = Lote::find($id))
+        //
+        if (!$racao = Racao::find($id))
             return redirect()->back();
 
-        $lote->update($request->all());
+        $racao->update($request->all());
 
         return redirect()->route('Lotes.index');
     }
@@ -113,10 +95,10 @@ class LoteController extends Controller
     public function destroy($id)
     {
         //
-        if (!$lote = Lote::where('id', $id)->first())
+        if (!$racao = Racao::where('id', $id)->first())
             return redirect()->back();
         
-        $lote->delete();
+        $racao->delete();
 
         return redirect()->route('Lotes.index');
     }

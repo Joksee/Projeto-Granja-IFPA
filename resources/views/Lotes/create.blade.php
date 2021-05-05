@@ -1,10 +1,9 @@
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-        <title>Formulário Frangos 1</title>
-    </head>
-    <body>
-        <h2>Tela de criação de frangos</h2>
+@extends('Layouts.app')
+
+@section('titulo', 'Criar Lotes: Formulário')
+
+@section('content') 
+<h2>Tela de criação de frangos</h2>
         <p>Nesta tela serão inseridos as informações para criar um lote</p>
         <form action= "{{route('Lotes.store') }}"  method="POST">
             @csrf
@@ -29,9 +28,11 @@
             <input type="date" name="dataInicialLotes" > <br>
             <br><br>
             
-            <label for="QuantFrangos">Quantidade </label>
-            <input type="int" name="quantFrangos"  >
-            
+            <label for="statusLotes"></label>   
+                    <select name="statusLotes">
+                            <option value="A" selected>Status: Ativo</option>
+                    </select>
+                    
             <hr>
             <br>
             <input type="submit" value="Enviar" name="Enviar">
@@ -39,7 +40,6 @@
 
 
         </form>
+    
+@endsection
 
-        
-    </body>
-</html>
