@@ -23,7 +23,7 @@
 
 @section('content2')
 
-<h3>Módulo Financeiro (fluxo de caixa)</h3> <br>
+<h3>Módulo Financeiro: (fluxo de caixa)</h3> <br>
 <table class="table ">
     <thead>
         <tr>
