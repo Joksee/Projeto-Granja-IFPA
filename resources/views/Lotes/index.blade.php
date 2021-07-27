@@ -22,6 +22,7 @@
                 <th scope="col">Peso Médio</th>
                 <th scope="col">Data Entrada</th>
                 <th scope="col">Update</th>
+                <th></th>
                 <th scope="col">Status </th>
             </tr>
         </thead>
@@ -39,8 +40,6 @@
             @endforeach
         </tbody>
     </table>
-
-    <a href="{{ route('Frangos.create')}}" class="btn btn-secondary">Cadastrar frangos</a>
     
     <br>
         
@@ -48,6 +47,7 @@
     <br><br><br>
     <a href="menu.html">Voltar</a>
 @endsection
+
 
 
 

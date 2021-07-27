@@ -22,6 +22,9 @@
             <br>
             <label for="dataFinalRacao">Data Final</label>
             <input type="date" name="dataFinalRacao" > <br>
+            
+            <label for="quantidadeRacao">Quantidade </label>
+            <input type="decimal" name="quantidadeRacao"  placeholder="KG">
             <br>
             <h5>Identificação do Lote</h5>
             <label for="lote_id">Id do lote:</label>

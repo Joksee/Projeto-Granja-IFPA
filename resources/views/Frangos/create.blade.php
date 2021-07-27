@@ -22,14 +22,21 @@
             <input type="int" name="lote_id"> <br>
 
         <label for="quantFrangos">Quantidade: </label>
-            <input type="int" name="quantFrangos"> <br>
+            <input type="integer" name="quantFrangos"> <br>
         
         <hr>
-        <label for="corFrangos">Cor </label>
-        <input type="char(10)" name="corFrangos"  placeholder="Local">
+        <label for="corFrangos">Cor:</label>   
+            <select name="corFrangos">
+                    <option value="Branco">Branco</option>
+                    <option value="Preto">Preto</option>
+                    <option value="Vermelho">Vermelho</option>
+            </select>
         <br>
-        <label for="subespecieFrangos">Subespecie </label>
-        <input type="char(10)" name="subespecieFrangos"  placeholder="Local">
+        <label for="subespecieFrangos">Subespécie:</label>   
+            <select name="subespecieFrangos">
+                    <option value="Peito_Duplo">Peito Peito Duplo</option>
+                    <option value="Caipirao">Caipirão</option>
+            </select>
         <br>
         
         <label for="sexoFrangos">sexo:</label>   

@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Racao extends Model
 {
     //
-    protected $fillable = ['nomeRacao','descricaoRacao','dataInicialRacao','dataFinalRacao','lote_id'];
+    protected $fillable = ['nomeRacao','descricaoRacao','dataInicialRacao','dataFinalRacao', 
+                        'quantidadeRacao','lote_id'];
 }

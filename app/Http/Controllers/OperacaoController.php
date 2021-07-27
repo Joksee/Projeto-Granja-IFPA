@@ -63,9 +63,9 @@ class OperacaoController extends Controller
     public function edit($id)
     {
         //
-        if (!$operacoes = Operacoes::find($id))
+        if (!$operacaos = Operacoes::find($id))
             return redirect()->back();
-
+        
         return view('Operacaos.edit', compact('operacaos'));
     }
 
@@ -96,5 +96,11 @@ class OperacaoController extends Controller
     public function destroy($id)
     {
         //
+        if (!$Operacoes = Operacoes::where('id', $id)->first())
+            return redirect()->back();
+        
+        $Operacoes->delete();
+
+        return redirect()->route('Financeiros.index');
     }
 }

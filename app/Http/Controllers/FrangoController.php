@@ -6,6 +6,7 @@ use App\Models\Frango;
 use App\Models\Lote;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\While_;
+use Illuminate\Support\Facades\DB;
 
 class FrangoController extends Controller
 {
@@ -41,16 +42,18 @@ class FrangoController extends Controller
     public function store(Request $request)
     {
         //
+        
         $data = $request->all();
+        $frango = Frango::create($data);
 
-        $quantFrangos=0;
-        $quantFrangos= $_POST['quantFrangos'];
-
-
-        while($quantFrangos>0){
-            $frango = Frango::create($data);
-            $quantFrangos= $quantFrangos-1;
-        }
+        
+        //DB::insert('insert into frangos * values (?, ?)', [1, 'Marc']);
+        //+Loop de teste+
+        //$quantFrangos=0;
+        //$quantFrangos= $_POST['quantFrangos'];
+        //while($quantFrangos>0){
+        //    $quantFrangos= $quantFrangos-1;
+        // }
         
         return view('Frangos.create')->with('success', 'Frangos Adicionados');
             
@@ -84,11 +87,32 @@ class FrangoController extends Controller
         //
         if (!$lote = Lote::find($id))
             return redirect()->back();
+        //método de chamada dos tipos de frangos
+        $AvesG= DB::table('frangos')
+                        ->where('lote_id','=',$id)
+                        ->where('estadoFrangos','=','G') 
+                        ->get();
+        $AvesP= DB::table('frangos')
+                        ->where('lote_id','=',$id)
+                        ->where('estadoFrangos','=','P') 
+                        ->get();
+        $AvesM= DB::table('frangos')
+                        ->where('lote_id','=',$id)
+                        ->where('estadoFrangos','=','M') 
+                        ->get();
+        $AvesV= DB::table('frangos')
+                        ->where('lote_id','=',$id)
+                        ->where('estadoFrangos','=','V') 
+                        ->get();
+        
+        
+                
 
         $frangos = $lote->frangos;
         return view('Frangos.edit', [
             'lote'=>$lote,
             'frangos'=>$frangos,
+            'AvesG'=>$AvesG,'AvesP'=>$AvesP,'AvesM'=>$AvesM,'AvesV'=>$AvesV,
 
             ]);
         
@@ -103,9 +127,13 @@ class FrangoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //        
+        //
+        if (!$frango = Frango::find($id))
+            return redirect()->back();  
+            
+        $frango->update($request->all());
 
-        return dd("");
+        return dd("$request");
     }
 
     /**

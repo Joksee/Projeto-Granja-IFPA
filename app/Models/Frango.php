@@ -8,5 +8,5 @@ class Frango extends Model
 {
     //
     protected $fillable = ['corFrangos', 'subespecieFrangos', 'sexoFrangos', 
-        'estadoFrangos', 'valorFrangos', 'lote_id'];
+        'quantFrangos','estadoFrangos', 'valorFrangos', 'lote_id'];
 }

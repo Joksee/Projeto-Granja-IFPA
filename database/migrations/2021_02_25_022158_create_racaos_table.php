@@ -16,9 +16,11 @@ class CreateRacaosTable extends Migration
         Schema::create('racaos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nomeRacao');
+            $table->decimal('quantidadeRacao', 5,2);
             $table->text('descricaoRacao', 300)->nullable();
             $table->date('dataInicialRacao');
             $table->date('dataFinalRacao')->nullable();
+            
 
             $table->unsignedBigInteger('lote_id');
             $table->foreign('lote_id')->references('id')->on('lotes')->onDelete('cascade'); 
